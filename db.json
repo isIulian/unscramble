@@ -1,0 +1,433 @@
+{
+    "words":[
+        {
+          "id": 1,
+          "text": "Harry Potter",
+          "topics": [1, 2, 3]
+        },
+        {
+          "id": 2,
+          "text": "Hermione Granger",
+          "topics": [4, 1, 2, 3]
+        },
+        {
+          "id": 3,
+          "text": "Ron Weasley",
+          "topics": [4, 1, 2, 3]
+        },
+        {
+          "id": 4,
+          "text": "The Lord of the Rings",
+          "topics": [1, 2, 3]
+        },
+        {
+          "id": 5,
+          "text": "Frodo Baggins",
+          "topics": [4, 1, 2, 3]
+        },
+        {
+          "id": 6,
+          "text": "Aragorn",
+          "topics": [4, 1, 2, 3]
+        },
+        {
+          "id": 7,
+          "text": "Game of Thrones",
+          "topics": [5, 1, 3]
+        },
+        {
+          "id": 8,
+          "text": "Jon Snow",
+          "topics": [4, 5, 1, 3]
+        },
+        {
+          "id": 9,
+          "text": "Daenerys Targaryen",
+          "topics": [4, 5, 1, 3]
+        },
+        {
+          "id": 10,
+          "text": "Avatar",
+          "topics": [2, 6, 3]
+        },
+        {
+          "id": 11,
+          "text": "Jake Sully",
+          "topics": [4, 2, 6, 3]
+        },
+        {
+          "id": 12,
+          "text": "Naruto",
+          "topics": [7, 8, 9]
+        },
+        {
+          "id": 13,
+          "text": "Naruto Uzumaki",
+          "topics": [4, 7, 8, 9]
+        },
+        {
+          "id": 14,
+          "text": "Friends",
+          "topics": [5, 10]
+        },
+        {
+          "id": 15,
+          "text": "Rachel Green",
+          "topics": [4, 5, 10]
+        },
+        {
+          "id": 16,
+          "text": "Breaking Bad",
+          "topics": [5, 11, 12]
+        },
+        {
+          "id": 17,
+          "text": "Walter White",
+          "topics": [4, 5, 11, 12]
+        },
+        {
+          "id": 18,
+          "text": "The Godfather",
+          "topics": [2, 12, 11]
+        },
+        {
+          "id": 19,
+          "text": "Vito Corleone",
+          "topics": [4, 2, 12, 11]
+        },
+        {
+          "id": 20,
+          "text": "Pride and Prejudice",
+          "topics": [1, 13, 14]
+        },
+        {
+          "id": 21,
+          "text": "Elizabeth Bennet",
+          "topics": [4, 1, 13, 14]
+        },
+        {
+          "id": 22,
+          "text": "Star Wars",
+          "topics": [2, 15, 3]
+        },
+        {
+          "id": 23,
+          "text": "Luke Skywalker",
+          "topics": [4, 2, 15, 3]
+        },
+        {
+          "id": 24,
+          "text": "Darth Vader",
+          "topics": [4, 2, 15, 3]
+        },
+        {
+          "id": 25,
+          "text": "The Simpsons",
+          "topics": [5, 6, 10]
+        },
+        {
+          "id": 26,
+          "text": "Homer Simpson",
+          "topics": [4, 5, 6, 10]
+        },
+        {
+          "id": 27,
+          "text": "Marge Simpson",
+          "topics": [4, 5, 6, 10]
+        },
+        {
+          "id": 28,
+          "text": "Sherlock Holmes",
+          "topics": [4, 1, 2, 16]
+        },
+        {
+          "id": 29,
+          "text": "Dr. John Watson",
+          "topics": [4, 1, 2, 16]
+        },
+        {
+          "id": 30,
+          "text": "The Matrix",
+          "topics": [2, 15, 9]
+        },
+        {
+          "id": 31,
+          "text": "Neo",
+          "topics": [4, 2, 15, 9]
+        },
+        {
+          "id": 32,
+          "text": "Morpheus",
+          "topics": [4, 2, 15, 9]
+        },
+        {
+          "id": 33,
+          "text": "Sherlock",
+          "topics": [5, 16, 12]
+        },
+        {
+          "id": 34,
+          "text": "Benedict Cumberbatch",
+          "topics": [17, 5, 2]
+        },
+        {
+          "id": 35,
+          "text": "Doctor Strange",
+          "topics": [4, 2, 18, 19]
+        },
+        {
+          "id": 36,
+          "text": "Iron Man",
+          "topics": [4, 2, 18, 19]
+        },
+        {
+          "id": 37,
+          "text": "The Avengers",
+          "topics": [2, 18, 19]
+        },
+        {
+          "id": 38,
+          "text": "Captain America",
+          "topics": [4, 2, 18, 19]
+        },
+        {
+          "id": 39,
+          "text": "The Great Gatsby",
+          "topics": [1, 14, 11]
+        },
+        {
+          "id": 40,
+          "text": "Jay Gatsby",
+          "topics": [4, 1, 14, 11]
+        },
+        {
+          "id": 41,
+          "text": "Nick Carraway",
+          "topics": [4, 1, 14, 11]
+        },
+        {
+          "id": 42,
+          "text": "Black Panther",
+          "topics": [2, 18, 19]
+        },
+        {
+          "id": 43,
+          "text": "T'Challa",
+          "topics": [4, 2, 18, 19]
+        },
+        {
+          "id": 44,
+          "text": "Wonder Woman",
+          "topics": [2, 18, 19]
+        },
+        {
+          "id": 45,
+          "text": "Diana Prince",
+          "topics": [4, 2, 18, 19]
+        },
+        {
+          "id": 46,
+          "text": "The Walking Dead",
+          "topics": [5, "zombies", 11, "horror"]
+        },
+        {
+          "id": 47,
+          "text": "Rick Grimes",
+          "topics": [4, 5, "zombies", 11, "horror"]
+        },
+        {
+          "id": 48,
+          "text": "Michonne",
+          "topics": [4, 5, "zombies", 11, "horror"]
+        },
+        {
+          "id": 49,
+          "text": "Jurassic Park",
+          "topics": [2, 15, "adventure"]
+        },
+        {
+          "id": 50,
+          "text": "Dr. Alan Grant",
+          "topics": [4, 2, 15, "adventure"]
+        },
+        {
+          "id": 51,
+          "text": "Ellie Sattler",
+          "topics": [4, 2, 15, "adventure"]
+        },
+        {
+          "id": 52,
+          "text": "Wonder Woman",
+          "topics": [2, 18, 19]
+        },
+        {
+          "id": 53,
+          "text": "Diana Prince",
+          "topics": [4, 2, 18, 19]
+        },
+        {
+          "id": 54,
+          "text": "Sherlock Holmes",
+          "topics": [4, 1, 2, 16]
+        },
+        {
+          "id": 55,
+          "text": "Dr. John Watson",
+          "topics": [4, 1, 2, 16]
+        },
+        {
+          "id": 56,
+          "text": "The Matrix",
+          "topics": [2, 15, 9]
+        },
+        {
+          "id": 57,
+          "text": "Neo",
+          "topics": [4, 2, 15, 9]
+        },
+        {
+          "id": 58,
+          "text": "Morpheus",
+          "topics": [4, 2, 15, 9]
+        },
+        {
+          "id": 59,
+          "text": "Sherlock",
+          "topics": [5, 16, 12]
+        },
+        {
+          "id": 60,
+          "text": "Benedict Cumberbatch",
+          "topics": [17, 5, 2]
+        },
+        {
+          "id": 61,
+          "text": "Doctor Strange",
+          "topics": [4, 2, 18, 19]
+        },
+        {
+          "id": 62,
+          "text": "Iron Man",
+          "topics": [4, 2, 18, 19]
+        },
+        {
+          "id": 63,
+          "text": "The Avengers",
+          "topics": [2, 18, 19]
+        },
+        {
+          "id": 64,
+          "text": "Captain America",
+          "topics": [4, 2, 18, 19]
+        },
+        {
+          "id": 65,
+          "text": "The Great Gatsby",
+          "topics": [1, 14, 11]
+        },
+        {
+          "id": 66,
+          "text": "Jay Gatsby",
+          "topics": [4, 1, 14, 11]
+        },
+        {
+          "id": 67,
+          "text": "Nick Carraway",
+          "topics": [4, 1, 14, 11]
+        },
+        {
+          "id": 68,
+          "text": "Black Panther",
+          "topics": [2, 18, 19]
+        },
+        {
+          "id": 69,
+          "text": "T'Challa",
+          "topics": [4, 2, 18, 19]
+        },
+        {
+          "id": 70,
+          "text": "Wonder Woman",
+          "topics": [2, 18, 19]
+        }
+    ],
+    "topics":[
+        {
+          "id": 1,
+          "name": "book"
+        },
+        {
+          "id": 2,
+          "name": "movie"
+        },
+        {
+          "id": 3,
+          "name": "fantasy"
+        },
+        {
+          "id": 4,
+          "name": "character"
+        },
+        {
+          "id": 5,
+          "name": "TV show"
+        },
+        {
+          "id": 6,
+          "name": "animation"
+        },
+        {
+          "id": 7,
+          "name": "animation"
+        },
+        {
+          "id": 8,
+          "name": "manga"
+        },
+        {
+          "id": 9,
+          "name": "action"
+        },
+        {
+          "id": 10,
+          "name": "comedy"
+        },
+        {
+          "id": 11,
+          "name": "drama"
+        },
+        {
+          "id": 12,
+          "name": "crime"
+        },
+        {
+          "id": 13,
+          "name": "romance"
+        },
+        {
+          "id": 14,
+          "name": "classic"
+        },
+        {
+          "id": 15,
+          "name": "sci-fi"
+        },
+        {
+          "id": 16,
+          "name": "mystery"
+        },
+        {
+          "id": 17,
+          "name": "actor"
+        },
+        {
+          "id": 18,
+          "name": "comics"
+        },
+        {
+          "id": 19,
+          "name": "superhero"
+        }
+      ]
+      
+}
