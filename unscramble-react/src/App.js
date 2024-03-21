@@ -1,6 +1,15 @@
 import './App.css';
+import { ReactComponent as MenuIcon } from './Assets/Images/hamburger-menu.svg';
+import { ReactComponent as BackIcon } from './Assets/Images/arrow-left.svg';
+import { ReactComponent as MoreIcon } from './Assets/Images/alt-arrow-right.svg';
+import { ReactComponent as HelpIcon } from './Assets/Images/help-circle.svg';
+
 import { useEffect, useState } from 'react'
-import Keyboard from './Components/Keyboard';
+import Keypad from './Components/Keypad';
+
+// https://dev.to/krisgardiner/build-wordle-in-react-1hkb
+//https://cupofcode.blog/wordle-in-react-multiword/
+//https://blog.openreplay.com/build-a-wordle-like-game-using-react/
 
 /*
 https://www.freecodecamp.org/news/how-to-shuffle-an-array-of-items-using-javascript-or-typescript/
@@ -27,20 +36,6 @@ function selectWordsForTopic (words, topic, number = 3) {
   return shuffle(topicRelatedWords);
 };
 
-
-/*
-Selects randomly N words from data by the given topic
-*/
-function getWordsForTopic (words, topic, number = 3) {
-  var topicWords = selectWordsForTopic(words, topic, number);
-  var wordWithScrambled = topicWords.map(word => {
-    return {original: word, scrambled: scrumbleWord(word.text)}
-  })
-
-  return wordWithScrambled;
-};
-
-
 function getRandomTopic (topics) {
   if (topics === null ||
     topics === undefined ||
@@ -64,16 +59,31 @@ function scrumbleWord (word) {
     .map(x => onlyWhiteSpace(x) ? "" : x); //clean up from different white spaces to one
 
   let scrumbled = splittedWord
-  .map(wordPart => onlyWhiteSpace(wordPart) ? "" : shuffle(wordPart.split('')).join(''));
+    .map(wordPart => onlyWhiteSpace(wordPart) ? "" : shuffle(wordPart.split('')).join(''));
   return scrumbled;
 };
 
 function App () {
 
-  const [data, setData] = useState({})
+  // possible game screens:
+  //  game --> starting screen
+  //  guess --> guessing word
+  //  menu --> hamburger menu expanded
+  //  help --> game details screen
+  const [state, setState] = useState(
+    {
+      screen: "game",
+      backScreen: "game",
+      data: {},
+      showGameMenu: false,
+      currentChallenge: null,
+      challengeWords: [],
+      challengeTopic: null
+    });
 
-  var randomTopic = getRandomTopic(data.topics);
-  var topicWords = getWordsForTopic(data.words, randomTopic);
+
+
+
   useEffect(() => {
     // fetch data
     const dataFetch = async () => {
@@ -82,35 +92,168 @@ function App () {
       ).json();
 
       // set state when the data received
-      setData(data);
+      var challengeTopic = getRandomTopic(data.topics);
+      var topicWords = selectWordsForTopic(data.words, challengeTopic);
+
+      // perpare challenges
+      var challengeWords = topicWords.map((word, index) => {
+        return {
+          id: index,
+          original: word,
+          scrambled: scrumbleWord(word.text),
+          guessed: false
+        }
+      })
+
+      setState(currentState => ({
+        ...currentState,
+        data: data,
+        challengeTopic: challengeTopic,
+        challengeWords: challengeWords
+      }));
     };
 
     dataFetch();
   }, []);
 
+  function guessWord (wordId) {
+    setState(currentState => {
+      let newState = { ...currentState, screen: "guess" }
+      let selectedChallenge = currentState.challengeWords.filter(x => x.id === wordId);
+      if (selectedChallenge.length === 1) {
+        newState.currentChallenge = selectedChallenge[0];
+      };
+      return newState;
+    });
+  }
+
+  function openMenu (backScreen) {
+    setState(currentState => ({ ...currentState, screen: "menu", backScreen: backScreen }));
+  }
+
+  function closeMenu () {
+    setState(currentState => ({ ...currentState, screen: currentState.backScreen }));
+  }
+
+  function showChallenge () {
+    setState(currentState => ({ ...currentState, screen: "game", currentChallenge: null }));
+  }
 
   return (
     <div className="App">
-      <header className="App-header">
-        Unscramble
-      </header>
 
-      <div className='game-topic'>
-        {randomTopic !== undefined ?
-          "#" + randomTopic.name : ""}
-      </div>
+      {/* game screen */}
+      {
+        state.screen === "game" ?
+          <div className='challenge-screen'>
+            <header className="App-header">
+              <HelpIcon className="action action__left action__help" style={{ marginLeft: '1rem' }} />
+              <span className='App-logo'>Unscramble</span>
+              <MenuIcon className='action action__right' style={{ marginRight: '1rem' }} onClick={() => openMenu("game")} />
+            </header>
+
+            {
+              <div className='challenge-board'>
+                <div className='challenge-topic'>
+                  {state.challengeTopic !== undefined && state.challengeTopic !== null ?
+                    "#" + state.challengeTopic.name : ""}
+                </div>
 
 
+                {state.challengeWords !== undefined ?
+                  <div className='challenge-words'>
+                    {state.challengeWords.map(word =>
+                      <div className='challenge-word'
+                        key={word.original.id}
+                        onClick={() => guessWord(word.id)}>
+                        {word.original.text} - {word.scrambled}
 
-      {topicWords !== undefined ?
-        <ul id="words">
-          {topicWords.map(word => <li key={word.original.id}>{word.original.text} - {word.scrambled}</li>)}
-        </ul> : <></>
+                        <div className='challenge-word__scrambled'>
+                          {
+                            word.scrambled.map(wordpart => <span className='challenge-word__scrambled-piece'> {
+                              !onlyWhiteSpace(wordpart) ?
+                                wordpart
+                                  .split('').map((letter, index) =>
+                                    <span className='challenge-word__scrambled-piece-letter' key={index}>{letter}</span>) :
+                                <></>
+                            } </span>)
+                          }
+                        </div>
+                        <MoreIcon />
+
+                      </div>)}
+                  </div> : null
+                }
+              </div>
+
+            }
+          </div>
+          : null
       }
 
+      {/* guess screen */}
+      {
+        state.screen === "guess" ?
+          <div className='challenge-screen'>
+            <header className="App-header">
+              <span className='action action__left' onClick={() => showChallenge()}>
+                <BackIcon />
+              </span>
+              <span className='App-logo'>Unscramble</span>
+              <span className='action action__right' onClick={() => openMenu("guess")}>
+                <MenuIcon />
+              </span>
+            </header>
 
+            <div className='challenge-board'>
+              <div className='challenge-topic'>
+                {state.challengeTopic !== undefined && state.challengeTopic !== null ?
+                  "#" + state.challengeTopic.name : ""}
+              </div>
+              <div className='challenge__word-grid'>
+                {state.currentChallenge !== null ?
+                  <>
+                  <div className='challenge__word-grid-row'>
+                    {
+                      state.currentChallenge.scrambled.map(wordpart => <span className='challenge__word-grid-row-piece'> {
+                        !onlyWhiteSpace(wordpart) ?
+                          wordpart
+                            .split('').map((letter, index) =>
+                              <span className='challenge__word-grid-row-piece-letter' key={index}>{letter}</span>) :
+                          <></>
+                      } </span>)
+                    }
+                    </div>
+                    <div className='challenge__word-grid-row guess-tiles'>
+                    {
+                      state.currentChallenge.scrambled.map(wordpart => <span className='challenge__word-grid-row-piece'> {
+                        !onlyWhiteSpace(wordpart) ?
+                          wordpart
+                            .split('').map((letter, index) =>
+                              <span className='challenge__word-grid-row-piece-letter' key={index}></span>) :
+                          <></>
+                      } </span>)
+                    }
+                    </div>
+                    </> : null}
+              </div>
+              <Keypad />
+            </div>
 
-      <Keyboard />
+          </div>
+          : null
+      }
+
+      {/* menu screen */}
+      {
+        state.screen === "menu" ?
+          <div className='challenge-screen menu'>
+            <button className='menu-action' onClick={() => showChallenge()}>Back</button>
+            <button className='menu-action' onClick={() => closeMenu()}>Close</button>
+          </div>
+          : null
+      }
+
     </div>
   );
 }
