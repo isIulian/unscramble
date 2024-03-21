@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/unscramble/static/css/main.73242005.css",
+    "main.js": "/unscramble/static/js/main.1072e1bc.js",
+    "static/js/453.bf549abc.chunk.js": "/unscramble/static/js/453.bf549abc.chunk.js",
+    "static/media/help-circle.svg": "/unscramble/static/media/help-circle.53a270355913c9af18611a49fa285f0b.svg",
+    "index.html": "/unscramble/index.html",
+    "static/media/hamburger-menu.svg": "/unscramble/static/media/hamburger-menu.ada7a0b21abacf2bd79036a421e97772.svg",
+    "static/media/arrow-left.svg": "/unscramble/static/media/arrow-left.89582b038146d8e1cdf472bdead1df7f.svg",
+    "static/media/alt-arrow-right.svg": "/unscramble/static/media/alt-arrow-right.784f9ac7bc8730725bf081c20b2e6010.svg",
+    "main.73242005.css.map": "/unscramble/static/css/main.73242005.css.map",
+    "main.1072e1bc.js.map": "/unscramble/static/js/main.1072e1bc.js.map",
+    "453.bf549abc.chunk.js.map": "/unscramble/static/js/453.bf549abc.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.73242005.css",
+    "static/js/main.1072e1bc.js"
+  ]
+}
