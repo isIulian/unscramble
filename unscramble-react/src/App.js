@@ -7,13 +7,6 @@ import { ReactComponent as HelpIcon } from './Assets/Images/help-circle.svg';
 import { useEffect, useState } from 'react'
 import Keypad from './Components/Keypad';
 
-// https://dev.to/krisgardiner/build-wordle-in-react-1hkb
-//https://cupofcode.blog/wordle-in-react-multiword/
-//https://blog.openreplay.com/build-a-wordle-like-game-using-react/
-
-/*
-https://www.freecodecamp.org/news/how-to-shuffle-an-array-of-items-using-javascript-or-typescript/
-*/
 const shuffle = (array) => {
   return array.sort(() => Math.random() - 0.5);
 };
@@ -47,21 +40,67 @@ function getRandomTopic (topics) {
   return selectedTopic;
 };
 
-function scrumbleWord (word) {
+function scrambleWord (word) {
   if (word === null ||
     word === undefined ||
     typeof (word) !== "string") {
-    return "";
+    return {
+      original: "",
+      scramble: "",
+      segments: [],
+      splitingPoints: []
+    };
   }
 
   let splittedWord = word
     .split(/(\s+)/)
     .map(x => onlyWhiteSpace(x) ? "" : x); //clean up from different white spaces to one
 
-  let scrumbled = splittedWord
-    .map(wordPart => onlyWhiteSpace(wordPart) ? "" : shuffle(wordPart.split('')).join(''));
-  return scrumbled;
+  let splitingPoints = [];
+  for (let i = 0; i < splittedWord.length; i++) {
+    let wordPart = splittedWord[i];
+    if (onlyWhiteSpace(wordPart)) {
+      let index = splittedWord[i - 1].length;
+      splitingPoints.push(index);
+    }
+  }
+
+  let joinedWords = splittedWord.join('');
+  let scrambled = {
+    original: joinedWords,
+    scramble: shuffle(joinedWords.toLowerCase().split('')).join(''),
+    segments: [],
+    splitingPoints: splitingPoints
+  };
+
+  scrambled.segments = splitWordByIndexes(scrambled.scramble, scrambled.splitingPoints);
+  return scrambled;
 };
+
+function splitWordByIndexes (word, indexes) {
+  if (word === null ||
+    (word !== null && indexes === null)) {
+    return [];
+  }
+
+  if (indexes.length <= 0) {
+    return word;
+  }
+
+  indexes = [0, ...indexes];
+  let segments = [];
+  for (let i = 0; i < indexes.length; i++) {
+    let startSegmentIndex = indexes[i];
+    if ((i + 1) < indexes.length) {
+      let endSegmentIndex = indexes[i + 1];
+      segments.push(word.substring(startSegmentIndex, endSegmentIndex))
+    }
+    else {
+      segments.push(word.substring(startSegmentIndex));
+    }
+  }
+  return segments;
+}
 
 function App () {
 
@@ -88,7 +127,7 @@ function App () {
     // fetch data
     const dataFetch = async () => {
       const data = await (
-        await fetch('../db.json')
+        await fetch('./unscramble/db.json')
       ).json();
 
       // set state when the data received
@@ -100,8 +139,11 @@ function App () {
         return {
           id: index,
           original: word,
-          scrambled: scrumbleWord(word.text),
-          guessed: false
+          scrambled: scrambleWord(word.text),
+          guessState: "",
+          currentGuess: "",
+          maxGuesses: 3,
+          triedGuesses: 0
         }
       })
 
@@ -139,6 +181,68 @@ function App () {
     setState(currentState => ({ ...currentState, screen: "game", currentChallenge: null }));
   }
 
+  // keys related functions
+  // execute when guess is to be submitted
+  function onSubmitGuess () {
+    console.log("Word is submittings");
+    let currentChallenge = state.currentChallenge;
+    if (currentChallenge === null) {
+      console.log('Challenge unselected');
+      return
+    };
+
+    let solution = currentChallenge.word;
+    let currentGuess = currentChallenge.currentGuess;
+    let solution_length = solution.length
+    // only add guess if turn is less than 5
+    // if (turn > 5) {
+    //   console.log('you used all your guesses!')
+    //   return
+    // }
+
+    // check word is solution_length chars
+    if (currentGuess.length !== solution_length) {
+      console.log(`word must be ${solution_length} chars.`)
+      return
+    }
+  }
+
+  function removeKey () {
+    console.log("Remove key from guess");
+    setState(currentState => ({
+      ...currentState,
+      currentChallenge: {
+        ...currentState.currentChallenge,
+        currentGuess: currentState.currentChallenge.currentGuess.slice(0, -1)
+      }
+    }));
+  }
+
+  function addKey (key) {
+    console.log("Add key to guess");
+    let currentChallenge = state.currentChallenge;
+    if (currentChallenge === null) {
+      console.log('Challenge unselected');
+      return
+    };
+
+    let solution = currentChallenge.original;
+    let currentGuess = currentChallenge.currentGuess;
+    let solution_length = solution.text.length
+    if (/^[A-Za-z]$/.test(key)) {
+      if (currentGuess.length < solution_length) {
+        setState(currentState => ({
+          ...currentState,
+          currentChallenge: {
+            ...currentState.currentChallenge,
+            currentGuess: currentState.currentChallenge.currentGuess + key
+          }
+        }));
+      }
+    }
+  }
+
+
   return (
     <div className="App">
 
@@ -166,17 +270,18 @@ function App () {
                       <div className='challenge-word'
                         key={word.original.id}
                         onClick={() => guessWord(word.id)}>
-                        {word.original.text} - {word.scrambled}
+                        {word.original.text} - {word.scrambled.original}
 
                         <div className='challenge-word__scrambled'>
                           {
-                            word.scrambled.map(wordpart => <span className='challenge-word__scrambled-piece'> {
-                              !onlyWhiteSpace(wordpart) ?
-                                wordpart
-                                  .split('').map((letter, index) =>
-                                    <span className='challenge-word__scrambled-piece-letter' key={index}>{letter}</span>) :
-                                <></>
-                            } </span>)
+                            word.scrambled.segments
+                              .map(wordpart => <span className='challenge-word__scrambled-piece'> {
+                                !onlyWhiteSpace(wordpart) ?
+                                  wordpart
+                                    .split('').map((letter, index) =>
+                                      <span className='challenge-word__scrambled-piece-letter' key={index}>{letter}</span>) :
+                                  <></>
+                              } </span>)
                           }
                         </div>
                         <MoreIcon />
@@ -213,31 +318,49 @@ function App () {
               <div className='challenge__word-grid'>
                 {state.currentChallenge !== null ?
                   <>
-                  <div className='challenge__word-grid-row'>
-                    {
-                      state.currentChallenge.scrambled.map(wordpart => <span className='challenge__word-grid-row-piece'> {
-                        !onlyWhiteSpace(wordpart) ?
-                          wordpart
-                            .split('').map((letter, index) =>
-                              <span className='challenge__word-grid-row-piece-letter' key={index}>{letter}</span>) :
-                          <></>
-                      } </span>)
-                    }
+                    <div className='challenge__word-grid-row challenge-tiles'>
+                      {
+                        state.currentChallenge.scrambled.segments
+                          .map(wordpart => <span className='challenge__word-grid-row-piece'> {
+                            !onlyWhiteSpace(wordpart) ?
+                              wordpart
+                                .split('').map((letter, index) =>
+                                  <span className='challenge__word-grid-row-piece-letter' key={index}>{letter}</span>) :
+                              <></>
+                          } </span>)
+                      }
                     </div>
                     <div className='challenge__word-grid-row guess-tiles'>
-                    {
-                      state.currentChallenge.scrambled.map(wordpart => <span className='challenge__word-grid-row-piece'> {
-                        !onlyWhiteSpace(wordpart) ?
-                          wordpart
-                            .split('').map((letter, index) =>
-                              <span className='challenge__word-grid-row-piece-letter' key={index}></span>) :
-                          <></>
-                      } </span>)
-                    }
+                      {
+                        state.currentChallenge.scrambled.segments
+                          .map((wordpart, partIndex) => <span className='challenge__word-grid-row-piece'> {
+                            !onlyWhiteSpace(wordpart) ?
+                              wordpart
+                                .split('').map((letter, letterIndex) => {
+
+                                  let baseIndex = partIndex < 1 ? 0 : state.currentChallenge.scrambled.segments
+                                    .filter((x, index) => index < partIndex)
+                                    .map(x => x.length)
+                                    .reduce((accumulator, currentValue) => {
+                                      return accumulator + currentValue
+                                    }, 0);
+                                  let currentGuessIndex = baseIndex + letterIndex;
+                                  return <span className={"challenge__word-grid-row-piece-letter " + (state.currentChallenge.currentGuess[currentGuessIndex] !== undefined ? 'populated' : '')}
+                                    key={letterIndex}>
+                                    {state.currentChallenge.currentGuess[currentGuessIndex]}
+                                  </span>;
+                                }
+                                ) :
+                              <></>
+                          } </span>)
+                      }
                     </div>
-                    </> : null}
+                  </> : null}
               </div>
-              <Keypad />
+              <Keypad
+                onEnter={onSubmitGuess}
+                onDelete={removeKey}
+                onChar={addKey} />
             </div>
 
           </div>
