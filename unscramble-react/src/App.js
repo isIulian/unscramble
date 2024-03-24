@@ -13,8 +13,15 @@ import { ToastContainer } from 'react-toastify';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-import { useEffect, useState } from 'react'
+import { useTranslation } from 'react-i18next';
+
+import { useEffect, useState } from 'react';
 import Keypad from './Components/Keypad';
+
+const locales = {
+  en: { title: 'English' },
+  it: { title: 'Italiano' },
+};
 
 const shuffle = (array) => {
   return array.sort(() => Math.random() - 0.5);
@@ -116,6 +123,7 @@ function splitWordByIndexes (word, indexes) {
 
 function App () {
 
+  const { t, i18n } = useTranslation();
   // possible game screens:
   //  game --> starting screen
   //  guess --> guessing word
@@ -226,7 +234,7 @@ function App () {
         screen = "game";
         break;
     }
-    setState(currentState => ({ ...currentState, screen: screen}));
+    setState(currentState => ({ ...currentState, screen: screen }));
   }
 
   // keys related functions
@@ -244,7 +252,8 @@ function App () {
 
     // check that number of remaining attemps are valid
     if (currentChallenge.triedGuesses >= currentChallenge.maxGuesses) {
-      toast.error(`You have reached up the limit of tries!`, {
+      let errorMessage = t("screens.guess.guessLimitRiched");
+      toast.error(errorMessage, {
         position: "top-center", autoClose: 1500, hideProgressBar: true,
         closeOnClick: true, pauseOnHover: false, draggable: true, progress: undefined
       });
@@ -253,7 +262,8 @@ function App () {
 
     // check word is solution_length chars
     if (currentGuess.length !== solution_length) {
-      toast.error(`The input is shorter than the word to guess`, {
+      let errorMessage = t("screens.guess.guessShortenThenWord");
+      toast.error(errorMessage, {
         position: "top-center", autoClose: 1500, hideProgressBar: true,
         closeOnClick: true, pauseOnHover: false, draggable: true, progress: undefined
       });
@@ -261,7 +271,8 @@ function App () {
     }
 
     if (currentGuess.toLowerCase() !== solution) {
-      toast.error(`Your guess is different from the word`, {
+      let errorMessage = t("screens.guess.wrongGuess");
+      toast.error(errorMessage, {
         position: "top-center", autoClose: 1500, hideProgressBar: true,
         closeOnClick: true, pauseOnHover: false, draggable: true, progress: undefined
       });
@@ -382,9 +393,9 @@ function App () {
             {
               game.completed === true ?
                 <div className='game-report'>
-                  <h1 className='game-report__title'>{game.win ? "You won" : "You lost"}</h1>
+                  <h1 className='game-report__title'>{game.win ? t("screens.game.matchWon") : t("screens.game.matchLost")}</h1>
                   <img className="game-report__picture" src={game.win ? winingImage : losingImage} alt="match state" />
-                  <p className='game-report__description'>{game.win ? "As you completed all challenges corretly" : "You lost the match as you wasn't able to complete some challenges"}</p>
+                  <p className='game-report__description'>{game.win ? t("screens.game.matchWonDescription") : t("screens.game.matchLostDescription")}</p>
                 </div> :
                 <div className='challenge-board'>
                   <div className='challenge-topic'>
@@ -494,7 +505,7 @@ function App () {
                     <div className='challenge-info__attempts'>
                       {
                         state.currentChallenge.guessState === "" ?
-                          "Remainig attempts " + (state.currentChallenge.maxGuesses - state.currentChallenge.triedGuesses) + " / " + state.currentChallenge.maxGuesses : ""
+                          t("screens.guess.remainingAttempts") + (state.currentChallenge.maxGuesses - state.currentChallenge.triedGuesses) + " / " + state.currentChallenge.maxGuesses : ""
                       }
                     </div>
                   </> : null}
@@ -544,10 +555,20 @@ function App () {
       {/* menu screen */}
       {
         state.screen === "menu" ?
-          <div className='challenge-screen menu'>
-            <button className='menu-action' onClick={() => newGame()}>New Game</button>
-            <button className='menu-action' onClick={() => closeMenu()}>Close</button>
-          </div>
+          <>
+            <ul className='app-cultures'>
+              {Object.keys(locales).map((locale) => (
+                <li className={"app-cultures__culture " + (i18n.resolvedLanguage === locale ? 'active' : '')} key={locale}><span onClick={() => i18n.changeLanguage(locale)}>
+                  {locales[locale].title}
+                </span></li>
+              ))}
+            </ul>
+
+            <div className='challenge-screen menu'>
+              <button className='menu-action' onClick={() => newGame()}>{t("screens.menu.newGame")}</button>
+              <button className='menu-action' onClick={() => closeMenu()}>{t("screens.menu.close")}</button>
+            </div>
+          </>
           : null
       }
 
@@ -556,15 +577,15 @@ function App () {
         state.screen === "help" ?
           <div className='challenge-screen'>
             <header className="App-header">
-              <BackIcon className="action action__left" onClick={()=> showScreen("game")} />
+              <BackIcon className="action action__left" onClick={() => showScreen("game")} />
               <span className='App-logo'>Unscramble</span>
-              <MenuIcon className='action action__right' style={{visibility: 'hidden' }} />
+              <MenuIcon className='action action__right' style={{ visibility: 'hidden' }} />
             </header>
 
             <div className='game-help'>
-              <h1 className='game-help__title'>How to play</h1>
-              <h3 className='game-help__subtitle'>Guess the topic related words</h3>
-              <p className='game-help__description'>Try to guess the topic related words in given n tries.</p>
+              <h1 className='game-help__title'>{t("screens.help.title")}</h1>
+              <h3 className='game-help__subtitle'>{t("screens.help.subtitle")}</h3>
+              <p className='game-help__description'>{t("screens.help.description")}</p>
             </div>
           </div>
           : null

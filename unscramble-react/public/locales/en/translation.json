@@ -1,0 +1,25 @@
+{
+    "screens": {
+        "game": {
+            "matchWon":"You won",
+            "matchWonDescription":"Congratulations you won as all the words was guessed",
+            "matchLost":"You lost",
+            "matchLostDescription":"Sorry, you lost as you haven't guessed all words. Maybe next time"
+        },
+        "guess":{
+            "guessLimitRiched": "You have reached up the limit of tries!",
+            "guessShortenThenWord": "The input is shorter than the word to guess",
+            "wrongGuess": "Sorry your guess isn't right",
+            "remainingAttempts": "Remaining attempts"
+        },
+        "menu":{
+            "newGame":"New Game",
+            "close": "Close"
+        },
+        "help":{
+            "title": "How to play",
+            "subtitle": "Guess the topic related words",
+            "description": "To win the game you must guess each word within the number of possible attempts"
+        }
+    }
+}

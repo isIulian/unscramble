@@ -8,4 +8,5 @@ References:
 - https://blog.openreplay.com/build-a-wordle-like-game-using-react/
 - https://www.freecodecamp.org/news/how-to-shuffle-an-array-of-items-using-javascript-or-typescript/
 - https://github.com/ssubodh98/wordle-clone/blob/master/src/AppFunctions.js
+- https://lokalise.com/blog/how-to-internationalize-react-application-using-i18next/
 
