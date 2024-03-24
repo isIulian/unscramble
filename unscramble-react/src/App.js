@@ -510,7 +510,7 @@ function App () {
                     <div className='challenge-info__attempts'>
                       {
                         state.currentChallenge.guessState === "" ?
-                          t("screens.guess.remainingAttempts") + (state.currentChallenge.maxGuesses - state.currentChallenge.triedGuesses) + " / " + state.currentChallenge.maxGuesses : ""
+                          t("screens.guess.remainingAttempts") + " " + (state.currentChallenge.maxGuesses - state.currentChallenge.triedGuesses) + " / " + state.currentChallenge.maxGuesses : ""
                       }
                     </div>
                   </> : null}

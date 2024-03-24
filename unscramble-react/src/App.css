@@ -200,17 +200,35 @@ h1,h2,h3,h4,h5,h6{
   justify-content: center;
   align-items: center;
   border-radius: 5px;
-  margin-left: 0.5em;
-  margin-right: 0.5em;
+  margin-left: 0.15em;
+  margin-right: 0.15em;
   font-size: 0.85rem;
   font-weight: bold;
   background-color: rgb(226 232 240);
   color: rgb(15 23 42);
+  width: 28px;
+  height: 32px;
+}
+
+.keyboard-component .keyboard-component__key.large {
+  width: 48px;
 }
 
 .keyboard-component .keyboard-component__key:hover {
   background-color: rgb(148 163 184);
   cursor: pointer;
+}
+
+@media (min-width: 500px ){
+  .keyboard-component .keyboard-component__key{
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+    width: 40px;
+    height: 40px;
+  }
+  .keyboard-component .keyboard-component__key.large {
+    width: 64.5px;
+  }  
 }
 
 .menu {

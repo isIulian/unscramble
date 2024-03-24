@@ -58,7 +58,7 @@ export default function Keypad ({ onChar, onDelete, onEnter, guesses }) {
         <Key value="L" onClick={onClick} />
       </div>
       <div className="keyboard-component__row">
-        <Key width={65.4} value="ENTER" onClick={onClick}>
+        <Key large={true} value="ENTER" onClick={onClick}>
           Enter
         </Key>
         <Key value="Z" onClick={onClick} />
@@ -68,7 +68,7 @@ export default function Keypad ({ onChar, onDelete, onEnter, guesses }) {
         <Key value="B" onClick={onClick} />
         <Key value="N" onClick={onClick} />
         <Key value="M" onClick={onClick} />
-        <Key width={65.4} value="DELETE" onClick={onClick}>
+        <Key large={true} value="DELETE" onClick={onClick}>
           Delete
         </Key>
       </div>

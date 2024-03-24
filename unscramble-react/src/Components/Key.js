@@ -2,15 +2,13 @@ import { React } from 'react'
 
 function Key ({
   children,
-  status,
-  width = 40,
+  large,
   value,
   onClick,
 }) {
   return (
     <div
-      style={{ width: `${width}px`, height: '48px' }}
-      className="keyboard-component__key"
+      className={"keyboard-component__key" + (large === true ? " large" : "")}
       onClick={() => onClick(value)}
     >
       {children || value}
