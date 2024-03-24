@@ -1,8 +1,18 @@
 :root {
   --text-color: #f6f6f6;
   --text-color-negative: #282c34;
-  --accent-color: #56d4f7;
+  --accent-color: #00c6fd;
+ --success-bg-color: #8CDD3C;
+ --success-bg-contrast-color:#282c34;
+ --fail-bg-color: #EE2B2B;
+ --fail-bg-contrast-color: #f6f6f6;
+  
 }
+
+h1,h2,h3,h4,h5,h6{
+  margin: 0;
+}
+
 .App {
   background-color: #282c34;
   color: var(--text-color);
@@ -55,8 +65,21 @@
   border-radius: 1em;
   margin-bottom: 1rem;
   background-color: var(--accent-color);
-  color: var(--text-color-negative);
+  color: var(--text-color);
+  letter-spacing: 1px;
+  line-height: 1.25em;
 }
+
+.challenge-topic--success {
+  background-color: var(--success-bg-color);
+  color: var(--success-bg-contrast-color);
+}
+
+.challenge-topic--fail {
+  background-color: var(--fail-bg-color);
+  color: var(--fail-bg-contrast-color);
+}
+
 
 .challenge-words .challenge-word {
   margin-bottom: 1.5rem;
@@ -67,15 +90,34 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  transition: all 0.3s ease-out;
 }
+
 
 .challenge-word:hover {
   cursor: pointer;
-  background-color: var(--accent-color);
+  border-bottom: 3px solid var(--accent-color);
 }
 
 .challenge-word:hover svg {
   transform: scale(0.85);
+}
+
+.challenge-word svg:first-child {
+  margin-right: 0.75rem;
+}
+
+.challenge-word .challenge-state {
+  fill: var(--text-color);
+  max-width: 24px;
+}
+
+.challenge-word .challenge-state.success .tick {
+  fill: var(--success-bg-color);
+}
+
+.challenge-word .challenge-state.fail .tick {
+  fill: var(--fail-bg-color);
 }
 
 .challenge-word__scrambled-piece {
@@ -95,22 +137,29 @@
 }
 
 /*guess screen*/
+.challenge-info {
+  padding: 1rem;
+  /*border: 1px solid red;*/
+  border-radius: 12px;
+  /* 1. inner glow - for dark mode 👇 */
+  box-shadow: inset 0 0 0.5px 1px hsla(0, 0%, 100%, 0.1),
+    /* 2. shadow ring 👇 */ 0 0 0 1px hsla(230, 13%, 9%, 0.075),
+    /* 3. multiple soft shadows 👇 */ 0 0.3px 0.4px hsla(230, 13%, 9%, 0.02),
+    0 0.9px 1.5px hsla(230, 13%, 9%, 0.045),
+    0 3.5px 6px hsla(230, 13%, 9%, 0.09);
+  margin-bottom: 2.5rem;
+}
+
+.challenge-info__attempts{
+  text-align: center;
+}
 .challenge__word-grid {
   margin-bottom: 5rem;
 }
 
-.challenge__word-grid-row{
-  margin-bottom: 2rem;
-}
-
-.challenge-tiles{
-  padding: 0.5rem 2rem;
-  border: 1px solid var(--accent-color);
-}
-
-.challenge__word-grid-row-piece{
+.challenge__word-grid-row-piece {
   margin-right: 0.5rem;
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.75rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -130,7 +179,7 @@
   font-size: 0.85rem;
 }
 
-.challenge__word-grid-row-piece-letter.populated{
+.challenge__word-grid-row-piece-letter.populated {
   background-color: rgb(241, 247, 255);
   color: rgb(15 23 42);
   font-weight: bold;
@@ -203,4 +252,25 @@ svg:hover {
 
 svg * {
   stroke: var(--text-color);
+}
+
+.game-report{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.game-report .game-report__title{
+  color: var(--accent-color);
+}
+
+
+.game-help{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.game-help .game-help__title{
+  color: var(--accent-color);
 }
