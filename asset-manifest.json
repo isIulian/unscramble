@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/unscramble/static/css/main.3bbce4c9.css",
-    "main.js": "/unscramble/static/js/main.29e6dbc7.js",
+    "main.css": "/unscramble/static/css/main.3edfe494.css",
+    "main.js": "/unscramble/static/js/main.1920f8eb.js",
     "static/js/453.bf549abc.chunk.js": "/unscramble/static/js/453.bf549abc.chunk.js",
     "static/media/winning-owl.gif": "/unscramble/static/media/winning-owl.e1ba4cbf56a951ffa616.gif",
     "static/media/angry-dog.gif": "/unscramble/static/media/angry-dog.c7b541b4574408ef9e91.gif",
@@ -11,14 +11,15 @@
     "index.html": "/unscramble/index.html",
     "static/media/square.svg": "/unscramble/static/media/square.707ec956860747eea9ca6cc4d2ada1da.svg",
     "static/media/hamburger-menu.svg": "/unscramble/static/media/hamburger-menu.ada7a0b21abacf2bd79036a421e97772.svg",
+    "static/media/getFetch.cjs": "/unscramble/static/media/getFetch.40f37ddea2378391108f.cjs",
     "static/media/arrow-left.svg": "/unscramble/static/media/arrow-left.89582b038146d8e1cdf472bdead1df7f.svg",
     "static/media/alt-arrow-right.svg": "/unscramble/static/media/alt-arrow-right.784f9ac7bc8730725bf081c20b2e6010.svg",
-    "main.3bbce4c9.css.map": "/unscramble/static/css/main.3bbce4c9.css.map",
-    "main.29e6dbc7.js.map": "/unscramble/static/js/main.29e6dbc7.js.map",
+    "main.3edfe494.css.map": "/unscramble/static/css/main.3edfe494.css.map",
+    "main.1920f8eb.js.map": "/unscramble/static/js/main.1920f8eb.js.map",
     "453.bf549abc.chunk.js.map": "/unscramble/static/js/453.bf549abc.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.3bbce4c9.css",
-    "static/js/main.29e6dbc7.js"
+    "static/css/main.3edfe494.css",
+    "static/js/main.1920f8eb.js"
   ]
 }

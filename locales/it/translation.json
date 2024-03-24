@@ -1,0 +1,25 @@
+{
+    "screens": {
+        "game": {
+            "matchWon":"Hai vinto",
+            "matchWonDescription":"Congratulazione hai vinto avvendo indovinato tutte le parole",
+            "matchLost":"Hai perso",
+            "matchLostDescription":"Hai perso perché non hai indovinato tutte le parole. La prossima volta andrà meglio"
+        },
+        "guess":{
+            "guessLimitRiched": "Hai raggiunto i numero di tentavi per la parola",
+            "guessShortenThenWord": "La parola inserita è più corta di quella da indovinare",
+            "wrongGuess": "Parola sbagliata",
+            "remainingAttempts": "Tentativi rimanenti"
+        },
+        "menu":{
+            "newGame":"Nuova partita",
+            "close": "Chiudi"
+        },
+        "help":{
+            "title": "Come giocare?",
+            "subtitle": "Indovina le parole correlate",
+            "description": "Per vincere in questo gioco si deve indovinare le varie parole correlate all'argomento. Per ogni parole si ha a disposizione un certo numero di tentativi"
+        }
+    }
+}
