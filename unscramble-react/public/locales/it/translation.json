@@ -4,7 +4,7 @@
             "matchWon":"Hai vinto",
             "matchWonDescription":"Congratulazione hai vinto avvendo indovinato tutte le parole",
             "matchLost":"Hai perso",
-            "matchLostDescription":"Hai perso perché non hai indovinato tutte le parole. Magari la prossima volta"
+            "matchLostDescription":"Hai perso perché non hai indovinato tutte le parole. La prossima volta andrà meglio"
         },
         "guess":{
             "guessLimitRiched": "Hai raggiunto i numero di tentavi per la parola",

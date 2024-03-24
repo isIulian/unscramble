@@ -53,6 +53,11 @@ function getRandomTopic (topics) {
   }
 
   let selectedTopic = topics[Math.floor(Math.random() * topics.length)];
+  //retrieve it's related parent
+  if (selectedTopic.parent !== null) {
+    let parentTopic = topics.filter(x => x.id === selectedTopic.parent)[0];
+    selectedTopic.parent = parentTopic;
+  }
   return selectedTopic;
 };
 
@@ -146,7 +151,7 @@ function App () {
       win: true,
     });
 
-
+  const currentCulture = i18n.resolvedLanguage;
 
 
   useEffect(() => {
@@ -165,7 +170,7 @@ function App () {
         return {
           id: index,
           original: word,
-          scrambled: scrambleWord(word.text),
+          scrambled: scrambleWord(word.text[currentCulture]),
           guessState: "",
           currentGuess: "",
           maxGuesses: 3,
@@ -356,9 +361,9 @@ function App () {
       return
     };
 
-    let solution = currentChallenge.original;
+    let solution = currentChallenge.scrambled.original;
     let currentGuess = currentChallenge.currentGuess;
-    let solution_length = solution.text.length
+    let solution_length = solution.length
     if (/^[A-Za-z]$/.test(key)) {
       if (currentGuess.length < solution_length) {
         setState(currentState => {
@@ -400,7 +405,7 @@ function App () {
                 <div className='challenge-board'>
                   <div className='challenge-topic'>
                     {state.challengeTopic !== undefined && state.challengeTopic !== null ?
-                      "#" + state.challengeTopic.name : ""}
+                      "#" + (state.challengeTopic.parent !== null ? state.challengeTopic.parent.name[currentCulture] + " / ": "") + state.challengeTopic.name[currentCulture] : ""}
                   </div>
 
 
@@ -474,7 +479,7 @@ function App () {
                   style={{ marginBottom: '1.75rem' }}>
                   {state.challengeTopic !== undefined && state.challengeTopic !== null ?
                     <span>
-                      {"#" + state.challengeTopic.name}
+                      {"#" + (state.challengeTopic.parent !== null ? state.challengeTopic.parent.name[currentCulture] + " / ": "") + state.challengeTopic.name[currentCulture]}
                     </span>
                     : ""}
                 </div>

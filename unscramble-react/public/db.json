@@ -1,433 +1,699 @@
 {
-  "words":[
-      {
-        "id": 1,
-        "text": "Harry Potter",
-        "topics": [1, 2, 3]
-      },
-      {
-        "id": 2,
-        "text": "Hermione Granger",
-        "topics": [4, 1, 2, 3]
-      },
-      {
-        "id": 3,
-        "text": "Ron Weasley",
-        "topics": [4, 1, 2, 3]
-      },
-      {
-        "id": 4,
-        "text": "The Lord of the Rings",
-        "topics": [1, 2, 3]
-      },
-      {
-        "id": 5,
-        "text": "Frodo Baggins",
-        "topics": [4, 1, 2, 3]
-      },
-      {
-        "id": 6,
-        "text": "Aragorn",
-        "topics": [4, 1, 2, 3]
-      },
-      {
-        "id": 7,
-        "text": "Game of Thrones",
-        "topics": [5, 1, 3]
-      },
-      {
-        "id": 8,
-        "text": "Jon Snow",
-        "topics": [4, 5, 1, 3]
-      },
-      {
-        "id": 9,
-        "text": "Daenerys Targaryen",
-        "topics": [4, 5, 1, 3]
-      },
-      {
-        "id": 10,
-        "text": "Avatar",
-        "topics": [2, 6, 3]
-      },
-      {
-        "id": 11,
-        "text": "Jake Sully",
-        "topics": [4, 2, 6, 3]
-      },
-      {
-        "id": 12,
-        "text": "Naruto",
-        "topics": [7, 8, 9]
-      },
-      {
-        "id": 13,
-        "text": "Naruto Uzumaki",
-        "topics": [4, 7, 8, 9]
-      },
-      {
-        "id": 14,
-        "text": "Friends",
-        "topics": [5, 10]
-      },
-      {
-        "id": 15,
-        "text": "Rachel Green",
-        "topics": [4, 5, 10]
-      },
-      {
-        "id": 16,
-        "text": "Breaking Bad",
-        "topics": [5, 11, 12]
-      },
-      {
-        "id": 17,
-        "text": "Walter White",
-        "topics": [4, 5, 11, 12]
-      },
-      {
-        "id": 18,
-        "text": "The Godfather",
-        "topics": [2, 12, 11]
-      },
-      {
-        "id": 19,
-        "text": "Vito Corleone",
-        "topics": [4, 2, 12, 11]
-      },
-      {
-        "id": 20,
-        "text": "Pride and Prejudice",
-        "topics": [1, 13, 14]
-      },
-      {
-        "id": 21,
-        "text": "Elizabeth Bennet",
-        "topics": [4, 1, 13, 14]
-      },
-      {
-        "id": 22,
-        "text": "Star Wars",
-        "topics": [2, 15, 3]
-      },
-      {
-        "id": 23,
-        "text": "Luke Skywalker",
-        "topics": [4, 2, 15, 3]
-      },
-      {
-        "id": 24,
-        "text": "Darth Vader",
-        "topics": [4, 2, 15, 3]
-      },
-      {
-        "id": 25,
-        "text": "The Simpsons",
-        "topics": [5, 6, 10]
-      },
-      {
-        "id": 26,
-        "text": "Homer Simpson",
-        "topics": [4, 5, 6, 10]
-      },
-      {
-        "id": 27,
-        "text": "Marge Simpson",
-        "topics": [4, 5, 6, 10]
-      },
-      {
-        "id": 28,
-        "text": "Sherlock Holmes",
-        "topics": [4, 1, 2, 16]
-      },
-      {
-        "id": 29,
-        "text": "Dr. John Watson",
-        "topics": [4, 1, 2, 16]
-      },
-      {
-        "id": 30,
-        "text": "The Matrix",
-        "topics": [2, 15, 9]
-      },
-      {
-        "id": 31,
-        "text": "Neo",
-        "topics": [4, 2, 15, 9]
-      },
-      {
-        "id": 32,
-        "text": "Morpheus",
-        "topics": [4, 2, 15, 9]
-      },
-      {
-        "id": 33,
-        "text": "Sherlock",
-        "topics": [5, 16, 12]
-      },
-      {
-        "id": 34,
-        "text": "Benedict Cumberbatch",
-        "topics": [17, 5, 2]
-      },
-      {
-        "id": 35,
-        "text": "Doctor Strange",
-        "topics": [4, 2, 18, 19]
-      },
-      {
-        "id": 36,
-        "text": "Iron Man",
-        "topics": [4, 2, 18, 19]
-      },
-      {
-        "id": 37,
-        "text": "The Avengers",
-        "topics": [2, 18, 19]
-      },
-      {
-        "id": 38,
-        "text": "Captain America",
-        "topics": [4, 2, 18, 19]
-      },
-      {
-        "id": 39,
-        "text": "The Great Gatsby",
-        "topics": [1, 14, 11]
-      },
-      {
-        "id": 40,
-        "text": "Jay Gatsby",
-        "topics": [4, 1, 14, 11]
-      },
-      {
-        "id": 41,
-        "text": "Nick Carraway",
-        "topics": [4, 1, 14, 11]
-      },
-      {
-        "id": 42,
-        "text": "Black Panther",
-        "topics": [2, 18, 19]
-      },
-      {
-        "id": 43,
-        "text": "T'Challa",
-        "topics": [4, 2, 18, 19]
-      },
-      {
-        "id": 44,
-        "text": "Wonder Woman",
-        "topics": [2, 18, 19]
-      },
-      {
-        "id": 45,
-        "text": "Diana Prince",
-        "topics": [4, 2, 18, 19]
-      },
-      {
-        "id": 46,
-        "text": "The Walking Dead",
-        "topics": [5, "zombies", 11, "horror"]
-      },
-      {
-        "id": 47,
-        "text": "Rick Grimes",
-        "topics": [4, 5, "zombies", 11, "horror"]
-      },
-      {
-        "id": 48,
-        "text": "Michonne",
-        "topics": [4, 5, "zombies", 11, "horror"]
-      },
-      {
-        "id": 49,
-        "text": "Jurassic Park",
-        "topics": [2, 15, "adventure"]
-      },
-      {
-        "id": 50,
-        "text": "Dr. Alan Grant",
-        "topics": [4, 2, 15, "adventure"]
-      },
-      {
-        "id": 51,
-        "text": "Ellie Sattler",
-        "topics": [4, 2, 15, "adventure"]
-      },
-      {
-        "id": 52,
-        "text": "Wonder Woman",
-        "topics": [2, 18, 19]
-      },
-      {
-        "id": 53,
-        "text": "Diana Prince",
-        "topics": [4, 2, 18, 19]
-      },
-      {
-        "id": 54,
-        "text": "Sherlock Holmes",
-        "topics": [4, 1, 2, 16]
-      },
-      {
-        "id": 55,
-        "text": "Dr. John Watson",
-        "topics": [4, 1, 2, 16]
-      },
-      {
-        "id": 56,
-        "text": "The Matrix",
-        "topics": [2, 15, 9]
-      },
-      {
-        "id": 57,
-        "text": "Neo",
-        "topics": [4, 2, 15, 9]
-      },
-      {
-        "id": 58,
-        "text": "Morpheus",
-        "topics": [4, 2, 15, 9]
-      },
-      {
-        "id": 59,
-        "text": "Sherlock",
-        "topics": [5, 16, 12]
-      },
-      {
-        "id": 60,
-        "text": "Benedict Cumberbatch",
-        "topics": [17, 5, 2]
-      },
-      {
-        "id": 61,
-        "text": "Doctor Strange",
-        "topics": [4, 2, 18, 19]
-      },
-      {
-        "id": 62,
-        "text": "Iron Man",
-        "topics": [4, 2, 18, 19]
-      },
-      {
-        "id": 63,
-        "text": "The Avengers",
-        "topics": [2, 18, 19]
-      },
-      {
-        "id": 64,
-        "text": "Captain America",
-        "topics": [4, 2, 18, 19]
-      },
-      {
-        "id": 65,
-        "text": "The Great Gatsby",
-        "topics": [1, 14, 11]
-      },
-      {
-        "id": 66,
-        "text": "Jay Gatsby",
-        "topics": [4, 1, 14, 11]
-      },
-      {
-        "id": 67,
-        "text": "Nick Carraway",
-        "topics": [4, 1, 14, 11]
-      },
-      {
-        "id": 68,
-        "text": "Black Panther",
-        "topics": [2, 18, 19]
-      },
-      {
-        "id": 69,
-        "text": "T'Challa",
-        "topics": [4, 2, 18, 19]
-      },
-      {
-        "id": 70,
-        "text": "Wonder Woman",
-        "topics": [2, 18, 19]
+  "topics": [
+    {
+      "id": 1,
+      "parent": null,
+      "name": {
+        "it": "Fumetti",
+        "en": "Comics"
       }
+    },
+    {
+      "id": 2,
+      "parent": null,
+      "name": {
+        "it": "Serie Tv",
+        "en": "Tv series"
+      }
+    },
+    {
+      "id": 3,
+      "parent": null,
+      "name": {
+        "it": "Film",
+        "en": "Movie"
+      }
+    },
+    {
+      "id": 4,
+      "parent": null,
+      "name": {
+        "it": "Video giochi",
+        "en": "Video games"
+      }
+    },
+    {
+      "id": 5,
+      "parent": null,
+      "name": {
+        "it": "Libri",
+        "en": "Books"
+      }
+    },
+    {
+      "id": 6,
+      "parent": 5,
+      "name": {
+        "it": "Harry Potter",
+        "en": "Harry Potter"
+      }
+    },
+    {
+      "id": 7,
+      "parent": 2,
+      "name": {
+        "it": "Miraculous: Tales of Ladybug & Cat Noir",
+        "en": "Miraculous: Tales of Ladybug & Cat Noir"
+      }
+    },
+    {
+      "id": 8,
+      "parent": 2,
+      "name": {
+        "it": "Pokémon",
+        "en": "Pokémon"
+      }
+    },
+    {
+      "id": 9,
+      "parent": 4,
+      "name": {
+        "it": "Pokémon",
+        "en": "Pokémon"
+      }
+    },
+    {
+      "id": 10,
+      "parent": 2,
+      "name": {
+        "it": "Netflix",
+        "en": "Netflix"
+      }
+    },
+    {
+      "id": 11,
+      "parent": 3,
+      "name": {
+        "it": "Disney",
+        "en": "Disney"
+      }
+    }
   ],
-  "topics":[
-      {
-        "id": 1,
-        "name": "book"
+  "words": [
+    {
+      "id": 1,
+      "text": {
+        "it": "Harry Potter",
+        "en": "Harry Potter"
       },
-      {
-        "id": 2,
-        "name": "movie"
+      "topics": [
+        5,
+        6
+      ]
+    },
+    {
+      "id": 2,
+      "text": {
+        "it": "Ron Wisley",
+        "en": "Ron Wisley"
       },
-      {
-        "id": 3,
-        "name": "fantasy"
+      "topics": [
+        5,
+        6
+      ]
+    },
+    {
+      "id": 3,
+      "text": {
+        "it": "Miraculous",
+        "en": "Miraculous"
       },
-      {
-        "id": 4,
-        "name": "character"
+      "topics": [
+        2,
+        7
+      ]
+    },
+    {
+      "id": 4,
+      "text": {
+        "it": "Ladybug",
+        "en": "Ladybug"
       },
-      {
-        "id": 5,
-        "name": "TV show"
+      "topics": [
+        2,
+        7
+      ]
+    },
+    {
+      "id": 5,
+      "text": {
+        "it": "Kwami",
+        "en": "Kwami"
       },
-      {
-        "id": 6,
-        "name": "animation"
+      "topics": [
+        2,
+        7
+      ]
+    },
+    {
+      "id": 6,
+      "text": {
+        "it": "Adrien Agreste",
+        "en": "Adrien Agreste"
       },
-      {
-        "id": 7,
-        "name": "animation"
+      "topics": [
+        2,
+        7
+      ]
+    },
+    {
+      "id": 7,
+      "text": {
+        "it": "Cat Noir",
+        "en": "Cat Noir"
       },
-      {
-        "id": 8,
-        "name": "manga"
+      "topics": [
+        2,
+        7
+      ]
+    },
+    {
+      "id": 8,
+      "text": {
+        "it": "Parigi",
+        "en": "Paris"
       },
-      {
-        "id": 9,
-        "name": "action"
+      "topics": [
+        2,
+        7
+      ]
+    },
+    {
+      "id": 9,
+      "text": {
+        "it": "Corea del Sud",
+        "en": "South Korea"
       },
-      {
-        "id": 10,
-        "name": "comedy"
+      "topics": [
+        2,
+        7
+      ]
+    },
+    {
+      "id": 10,
+      "text": {
+        "it": "Tikki",
+        "en": "Tikki"
       },
-      {
-        "id": 11,
-        "name": "drama"
+      "topics": [
+        2,
+        7
+      ]
+    },
+    {
+      "id": 11,
+      "text": {
+        "it": "Plagg",
+        "en": "Plagg"
       },
-      {
-        "id": 12,
-        "name": "crime"
+      "topics": [
+        2,
+        7
+      ]
+    },
+    {
+      "id": 12,
+      "text": {
+        "it": "Ash",
+        "en": "Ash"
       },
-      {
-        "id": 13,
-        "name": "romance"
+      "topics": [
+        2,
+        8
+      ]
+    },
+    {
+      "id": 13,
+      "text": {
+        "it": "Ash Ketchum",
+        "en": "Ash Ketchum"
       },
-      {
-        "id": 14,
-        "name": "classic"
+      "topics": [
+        2,
+        8
+      ]
+    },
+    {
+      "id": 14,
+      "text": {
+        "it": "Team Rocket",
+        "en": "Team Rocket"
       },
-      {
-        "id": 15,
-        "name": "sci-fi"
+      "topics": [
+        2,
+        8
+      ]
+    },
+    {
+      "id": 15,
+      "text": {
+        "it": "Pikachu",
+        "en": "Pikachu"
       },
-      {
-        "id": 16,
-        "name": "mystery"
+      "topics": [
+        2,
+        8
+      ]
+    },
+    {
+      "id": 16,
+      "text": {
+        "it": "Professor Oak",
+        "en": "Professor Oak"
       },
-      {
-        "id": 17,
-        "name": "actor"
+      "topics": [
+        2,
+        8
+      ]
+    },
+    {
+      "id": 17,
+      "text": {
+        "it": "Pikachu",
+        "en": "Pikachu"
       },
-      {
-        "id": 18,
-        "name": "comics"
+      "topics": [
+        4,
+        9
+      ]
+    },
+    {
+      "id": 18,
+      "text": {
+        "it": "Bulbasaur",
+        "en": "Bulbasaur"
       },
-      {
-        "id": 19,
-        "name": "superhero"
-      }
-    ]
-    
+      "topics": [
+        4,
+        9
+      ]
+    },
+    {
+      "id": 19,
+      "text": {
+        "it": "Ivysaur",
+        "en": "Ivysaur"
+      },
+      "topics": [
+        4,
+        9
+      ]
+    },
+    {
+      "id": 20,
+      "text": {
+        "it": "Venusaur",
+        "en": "Venusaur"
+      },
+      "topics": [
+        4,
+        9
+      ]
+    },
+    {
+      "id": 21,
+      "text": {
+        "it": "Charmander",
+        "en": "Charmander"
+      },
+      "topics": [
+        4,
+        9
+      ]
+    },
+    {
+      "id": 22,
+      "text": {
+        "it": "Charmeleon",
+        "en": "Charmeleon"
+      },
+      "topics": [
+        4,
+        9
+      ]
+    },
+    {
+      "id": 23,
+      "text": {
+        "it": "Charizard",
+        "en": "Charizard"
+      },
+      "topics": [
+        4,
+        9
+      ]
+    },
+    {
+      "id": 24,
+      "text": {
+        "it": "Squirtle",
+        "en": "Squirtle"
+      },
+      "topics": [
+        4,
+        9
+      ]
+    },
+    {
+      "id": 25,
+      "text": {
+        "it": "Wartortle",
+        "en": "Wartortle"
+      },
+      "topics": [
+        4,
+        9
+      ]
+    },
+    {
+      "id": 26,
+      "text": {
+        "it": "Blastoise",
+        "en": "Blastoise"
+      },
+      "topics": [
+        4,
+        9
+      ]
+    },
+    {
+      "id": 27,
+      "text": {
+        "it": "Caterpie",
+        "en": "Caterpie"
+      },
+      "topics": [
+        4,
+        9
+      ]
+    },
+    {
+      "id": 28,
+      "text": {
+        "it": "Metapod",
+        "en": "Metapod"
+      },
+      "topics": [
+        4,
+        9
+      ]
+    },
+    {
+      "id": 29,
+      "text": {
+        "it": "Butterfree",
+        "en": "Butterfree"
+      },
+      "topics": [
+        4,
+        9
+      ]
+    },
+    {
+      "id": 30,
+      "text": {
+        "it": "Mewtwo",
+        "en": "Mewtwo"
+      },
+      "topics": [
+        4,
+        9
+      ]
+    },
+    {
+      "id": 31,
+      "text": {
+        "it": "Zapdos",
+        "en": "Zapdos"
+      },
+      "topics": [
+        4,
+        9
+      ]
+    },
+    {
+      "id": 32,
+      "text": {
+        "it": "Squid game",
+        "en": "Squid game"
+      },
+      "topics": [
+        2,
+        10
+      ]
+    },
+    {
+      "id": 33,
+      "text": {
+        "it": "Stranger Things",
+        "en": "Stranger Things"
+      },
+      "topics": [
+        2,
+        10
+      ]
+    },
+    {
+      "id": 34,
+      "text": {
+        "it": "One Piece",
+        "en": "One Piece"
+      },
+      "topics": [
+        2,
+        10
+      ]
+    },
+    {
+      "id": 35,
+      "text": {
+        "it": "Bridgerton",
+        "en": "Bridgerton"
+      },
+      "topics": [
+        2,
+        10
+      ]
+    },
+    {
+      "id": 36,
+      "text": {
+        "it": "The Witcher",
+        "en": "The Witcher"
+      },
+      "topics": [
+        2,
+        10
+      ]
+    },
+    {
+      "id": 37,
+      "text": {
+        "it": "Mercoledi",
+        "en": "Wednesday"
+      },
+      "topics": [
+        2,
+        10
+      ]
+    },
+    {
+      "id": 38,
+      "text": {
+        "it": "INSIDE OUT",
+        "en": "INSIDE OUT"
+      },
+      "topics": [
+        3,
+        11
+      ]
+    },
+    {
+      "id": 39,
+      "text": {
+        "it": "ALICE IN WONDERLAND",
+        "en": "ALICE IN WONDERLAND"
+      },
+      "topics": [
+        3,
+        11
+      ]
+    },
+    {
+      "id": 40,
+      "text": {
+        "it": "AVENGERS INFINITY WAR",
+        "en": "AVENGERS INFINITY WAR"
+      },
+      "topics": [
+        3,
+        11
+      ]
+    },
+    {
+      "id": 41,
+      "text": {
+        "it": "UP",
+        "en": "UP"
+      },
+      "topics": [
+        3,
+        11
+      ]
+    },
+    {
+      "id": 42,
+      "text": {
+        "it": "COCO",
+        "en": "COCO"
+      },
+      "topics": [
+        3,
+        11
+      ]
+    },
+    {
+      "id": 43,
+      "text": {
+        "it": "THE AVENGERS",
+        "en": "THE AVENGERS"
+      },
+      "topics": [
+        3,
+        11
+      ]
+    },
+    {
+      "id": 44,
+      "text": {
+        "it": "A CHRISTMAS CAROL",
+        "en": "A CHRISTMAS CAROL"
+      },
+      "topics": [
+        3,
+        11
+      ]
+    },
+    {
+      "id": 45,
+      "text": {
+        "it": "ALADDIN",
+        "en": "ALADDIN"
+      },
+      "topics": [
+        3,
+        11
+      ]
+    },
+    {
+      "id": 46,
+      "text": {
+        "it": "FROZEN IL REGNO DI GHIACCIO",
+        "en": "FROZEN IL REGNO DI GHIACCIO"
+      },
+      "topics": [
+        3,
+        11
+      ]
+    },
+    {
+      "id": 47,
+      "text": {
+        "it": "BLACK PANTHER",
+        "en": "BLACK PANTHER"
+      },
+      "topics": [
+        3,
+        11
+      ]
+    },
+    {
+      "id": 48,
+      "text": {
+        "it": "Dumbo",
+        "en": "Dumbo"
+      },
+      "topics": [
+        3,
+        11
+      ]
+    },
+    {
+      "id": 49,
+      "text": {
+        "it": "LA BELLA E LA BESTIA",
+        "en": "The beauty and the beast"
+      },
+      "topics": [
+        3,
+        11
+      ]
+    },
+    {
+      "id": 50,
+      "text": {
+        "it": "IL RE LEONE",
+        "en": "The Lion King"
+      },
+      "topics": [
+        3,
+        11
+      ]
+    },
+    {
+      "id": 51,
+      "text": {
+        "it": "Avatar",
+        "en": "Avatar"
+      },
+      "topics": [
+        3,
+        11
+      ]
+    },
+    {
+      "id": 52,
+      "text": {
+        "it": "MALEFICENT",
+        "en": "MALEFICENT"
+      },
+      "topics": [
+        3,
+        11
+      ]
+    },
+    {
+      "id": 53,
+      "text": {
+        "it": "Iron Man",
+        "en": "Iron Man"
+      },
+      "topics": [
+        3,
+        11
+      ]
+    },
+    {
+      "id": 54,
+      "text": {
+        "it": "LA PRINCIPESSA E IL RANOCCHIO",
+        "en": "THE FROG PRINCESS"
+      },
+      "topics": [
+        3,
+        11
+      ]
+    },
+    {
+      "id": 55,
+      "text": {
+        "it": "CENERENTOLA",
+        "en": "INDERELLA"
+      },
+      "topics": [
+        3,
+        11
+      ]
+    }
+  ]
 }
